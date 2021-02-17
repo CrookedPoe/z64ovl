@@ -1,0 +1,136 @@
+#ifndef __Z64OVL_Z_BOSS_FD__
+#define __Z64OVL_Z_BOSS_FD__
+
+#define Z_BOSS_FD_ACTOR_NUMBER     0x0096
+#define Z_BOSS_FD_ACTOR_CATEGORY   ACTORCAT_BOSS
+#define Z_BOSS_FD_OBJECT_NUMBER    0x009C
+#define Z_BOSS_FD_FLAGS            (ACTORFLAG_FIGHT | ACTORFLAG_ALWAYS_UPDATE | ACTORFLAG_ALWAYS_DRAW)
+
+typedef struct z_boss_fd_s z_boss_fd_t;
+struct z_boss_fd_s {
+    /* 0x0 */ ACTOR actor;
+    /* 0x13C */ SKELETON_INFO skeleton_head;
+    /* 0x180 */ SKELETON_INFO skeleton_Rarm;
+    /* 0x1C4 */ SKELETON_INFO skeleton_Larm;
+    /* 0x208 */ void (*process)(/* ECOFF does not store param types */);
+    /* 0x20C */ short fire_time;
+    /* 0x20E */ short hone;
+    /* 0x210 */ u8 kankyo;
+    /* 0x212 */ short move_mode;
+    /* 0x214 */ short work[18];
+    /* 0x238 */ short timer[6];
+    /* 0x244 */ float fwork[20];
+    /* 0x294 */ float move_spd_S;
+    /* 0x298 */ float turn_spd;
+    /* 0x29C */ float turn_spd_S;
+    /* 0x2A0 */ float move_swing;
+    /* 0x2A4 */ float move_swing_spd;
+    /* 0x2A8 */ short head_angleY;
+    /* 0x2AC */ xyz_t target_pos;
+    /* 0x2B8 */ xyz_t ext_hole_p;
+    /* 0x2C4 */ u8 hole_P;
+    /* 0x2C5 */ u8 eye_tex_no;
+    /* 0x2C6 */ u8 sima_down_flag;
+    /* 0x2C7 */ u8 head_break;
+    /* 0x2C8 */ u8 move_switch;
+    /* 0x2CC */ xyz_t move_angle[100];
+    /* 0x77C */ xyz_t move_pos[100];
+    /* 0xC2C */ xyz_t Rarm_angle[4];
+    /* 0xC5C */ xyz_t Larm_angle[4];
+    /* 0xC8C */ xyz_t sok_move_angle[30];
+    /* 0xDF4 */ xyz_t sok_move_pos[30];
+    /* 0xF5C */ float sok_move_scale[30];
+    /* 0xFD4 */ xyz_t sok_pos;
+    /* 0xFE0 */ xyz_t sok_move_pos_L[30];
+    /* 0x1148 */ float sok_move_scale_L[30];
+    /* 0x11C0 */ xyz_t sok_pos_L;
+    /* 0x11CC */ xyz_t sok_move_pos_R[30];
+    /* 0x1334 */ float sok_move_scale_R[30];
+    /* 0x13AC */ xyz_t sok_pos_R;
+    /* 0x13B8 */ float sok_swing_P;
+    /* 0x13BC */ float mouse_open;
+    /* 0x13C0 */ short body_disp[18];
+    /* 0x13E4 */ xyz_t fire_position;
+    /* 0x13F0 */ short demo_mode2;
+    /* 0x13F2 */ short demo_mode;
+    /* 0x13F4 */ short camera_no;
+    /* 0x13F8 */ xyz_t eye;
+    /* 0x1404 */ xyz_t way;
+    /* 0x1410 */ xyz_t eyeS;
+    /* 0x141C */ xyz_t wayS;
+    /* 0x1428 */ xyz_t eye_spd;
+    /* 0x1434 */ xyz_t way_spd;
+    /* 0x1440 */ xyz_t eye_target;
+    /* 0x144C */ xyz_t eye_target_ad;
+    /* 0x1458 */ xyz_t way_target;
+    /* 0x1464 */ xyz_t way_target_ad;
+    /* 0x1470 */ float camera_morf;
+    /* 0x1474 */ float camera_morf_spd;
+    /* 0x1478 */ float demo_jisin_Y;
+    /* 0x147C */ float demo_jisin_YA;
+    /* 0x1480 */ ClObjJntSph acoc_jntsph_info;
+    /* 0x14A0 */ ClObjJntSphElem jntsph_elem[19];
+    /* 0x1960 */ Boss_Eff boss_eff[180];
+    /* 0x0 */ ACTOR actor;
+    /* 0x13C */ SKELETON_INFO skeleton_body;
+    /* 0x180 */ void (*process)(/* ECOFF does not store param types */);
+    /* 0x184 */ u8 not_AT;
+    /* 0x186 */ short search_switch;
+    /* 0x188 */ short move_mode;
+    /* 0x18A */ short work[17];
+    /* 0x1AC */ short timer[5];
+    /* 0x1B8 */ float fwork[10];
+    /* 0x1E0 */ float anime_end_frame;
+    /* 0x1E4 */ float turn_spd;
+    /* 0x1E8 */ float turn_spd_S;
+    /* 0x1EC */ float move_swing;
+    /* 0x1F0 */ short head_angleY;
+    /* 0x1F4 */ xyz_t target_pos;
+    /* 0x200 */ xyz_t fire_position;
+    /* 0x20C */ s_xyz kubi_angle;
+    /* 0x212 */ u8 hole_P;
+    /* 0x213 */ u8 eye_tex_no;
+    /* 0x214 */ xyz_t shape_angle[30];
+    /* 0x37C */ xyz_t shape_pos[30];
+    /* 0x4E4 */ xyz_t move_angle[100];
+    /* 0x994 */ xyz_t move_pos[100];
+    /* 0xE44 */ xyz_t Rarm_angle[4];
+    /* 0xE74 */ xyz_t Larm_angle[4];
+    /* 0xEA4 */ xyz_t sok_move_angle[10];
+    /* 0xF1C */ xyz_t sok_move_pos[10];
+    /* 0xF94 */ xyz_t sok_move_pos_spd[10];
+    /* 0x100C */ float sok_move_scale[10];
+    /* 0x1034 */ xyz_t sok_pos;
+    /* 0x1040 */ xyz_t sok_move_angle_L[10];
+    /* 0x10B8 */ xyz_t sok_move_pos_L[10];
+    /* 0x1130 */ xyz_t sok_move_pos_spd_L[10];
+    /* 0x11A8 */ float sok_move_scale_L[10];
+    /* 0x11D0 */ xyz_t sok_pos_L;
+    /* 0x11DC */ xyz_t sok_move_angle_R[10];
+    /* 0x1254 */ xyz_t sok_move_pos_R[10];
+    /* 0x12CC */ xyz_t sok_move_pos_spd_R[10];
+    /* 0x1344 */ float sok_move_scale_R[10];
+    /* 0x136C */ xyz_t sok_pos_R;
+    /* 0x1378 */ float sok_swing_P;
+    /* 0x137C */ float mouse_open;
+    /* 0x1380 */ short demo_mode;
+    /* 0x1382 */ short camera_no;
+    /* 0x1384 */ xyz_t eye;
+    /* 0x1390 */ xyz_t way;
+    /* 0x139C */ xyz_t eyeS;
+    /* 0x13A8 */ xyz_t wayS;
+    /* 0x13B4 */ xyz_t eye_spd;
+    /* 0x13C0 */ xyz_t way_spd;
+    /* 0x13CC */ xyz_t eye_target;
+    /* 0x13D8 */ xyz_t eye_target_ad;
+    /* 0x13E4 */ xyz_t way_target;
+    /* 0x13F0 */ xyz_t way_target_ad;
+    /* 0x13FC */ float camera_morf;
+    /* 0x1400 */ float camera_morf_spd;
+    /* 0x1404 */ float demo_jisin_Y;
+    /* 0x1408 */ float demo_jisin_YA;
+    /* 0x140C */ ClObjJntSph acoc_jntsph_info;
+    /* 0x142C */ ClObjJntSphElem jntsph_elem[9];
+}; /* size = 0x43A0 */
+
+#endif /* __Z64OVL_Z_BOSS_FD__ */
